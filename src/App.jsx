@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import BeginnerIndex from './pages/BeginnerIndex';
 import PractitionerIndex from './pages/PractitionerIndex';
@@ -11,10 +12,12 @@ import Zengo from './pages/Zengo';
 import Pottery from './pages/Pottery';
 import Fabrics from './pages/Fabrics';
 import Contribute from './pages/Contribute';
+import Contact from './pages/Contact';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/beginner-index" element={<BeginnerIndex />} />
@@ -28,6 +31,7 @@ function App() {
         <Route path="/pottery" element={<Pottery />} />
         <Route path="/fabrics" element={<Fabrics />} />
         <Route path="/contribute" element={<Contribute />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

@@ -32,8 +32,8 @@ const Home = () => {
           </svg>
         </div>
         <div className="flex flex-col">
-          <span className={`font-display font-semibold tracking-tight ${s.title}`}>茶乃間</span>
-          <span className={`text-ink/50 font-light tracking-wider ${s.subtitle}`}>Cha no Ma</span>
+          <span className="font-display text-xl md:text-2xl font-semibold tracking-tight">茶乃間</span>
+          <span className="text-ink/50 font-light tracking-wider text-xs md:text-sm">Cha no Ma</span>
         </div>
       </Link>
     );
@@ -41,8 +41,10 @@ const Home = () => {
 
   const translations = {
     ja: {
-      tagline: '世界中どこからでも、茶道を学ぶ',
-      subtitle: '伝統と革新が交わる場所',
+      hero: {
+        title: '茶道をポケットに',
+        subtitle: 'いつでも、どこでも、茶の心'
+      },
       forBeginners: '初めて茶道に触れる方へ',
       forPractitioners: '日々のお稽古を充実させたい方へ',
       beginnersDesc: '茶道の基本から歴史、茶室マップまで',
@@ -57,7 +59,7 @@ const Home = () => {
         ]
       },
       pathTitle: 'あなたに合った学び',
-      pathSubtitle: 'レベルと目的に応じた最適なコンテンツをご用意',
+      pathSubtitle: 'レベルと目的に応じた最適なコンテンツ',
       content: {
         basics: '茶道の基本',
         history: '歴史と文化',
@@ -69,8 +71,10 @@ const Home = () => {
       }
     },
     en: {
-      tagline: 'Learn Tea Ceremony from Anywhere in the World',
-      subtitle: 'Where Tradition Meets Innovation',
+      hero: {
+        title: 'Tea Ceremony in Your Pocket',
+        subtitle: 'he Way of Tea, Anytime, Anywhere'
+      },
       forBeginners: 'For First-Time Learners',
       forPractitioners: 'For Dedicated Practitioners',
       beginnersDesc: 'From basics to history and tea room maps',
@@ -248,17 +252,16 @@ const Home = () => {
               <span className="text-matcha font-medium text-sm tracking-wide">SINCE 2026</span>
             </div>
             
-            <h1 className="font-display text-6xl md:text-8xl font-bold leading-tight tracking-tight">
-              <span className="block text-ink">{t.tagline.split('、')[0]}</span>
-              <span className="block text-matcha mt-2">{t.tagline.split('、')[1] || t.tagline.split(',')[1]}</span>
+            <h1 className="font-display text-4xl md:text-7xl font-bold mb-6 leading-tight">
+              {t.hero.title}
             </h1>
             
-            <p className="text-2xl text-ink/70 font-light leading-relaxed max-w-3xl mx-auto">
-              {t.subtitle}
+            <p className="text-lg md:text-2xl text-ink/60 mb-8 max-w-3xl mx-auto leading-relaxed">
+              {t.hero.subtitle}
             </p>
             
             <div className="flex gap-4 pt-8 justify-center">
-              <button className="px-8 py-4 border-2 border-ink rounded-full font-medium hover:bg-ink hover:text-paper transition-all hover:scale-105">
+              <button className="px-6 py-3 md:px-8 md:py-4 border-2 border-ink rounded-full font-medium hover:bg-ink hover:text-paper transition-all hover:scale-105">
                 <Globe className="inline mr-2" size={20} />
                 {languages.find(l => l.code === language)?.name}
               </button>
@@ -272,7 +275,7 @@ const Home = () => {
       <section className="py-32 px-6 tea-pattern">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="font-display text-5xl font-bold mb-6 fade-in">{t.features.title}</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6 fade-in">{t.features.title}</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-matcha to-gold mx-auto fade-in delay-100"></div>
           </div>
           
@@ -314,7 +317,7 @@ const Home = () => {
       {/* Audience Selection */}
       <section className="py-32 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl font-bold text-center mb-6 fade-in">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-center mb-6">
             {t.pathTitle}
           </h2>
           <p className="text-center text-ink/60 text-lg mb-20 fade-in delay-100">
@@ -323,7 +326,7 @@ const Home = () => {
           <div className="grid md:grid-cols-2 gap-8">
 
             {/* Beginners Card */}
-            <Link to="/beginner-index" className="content-card p-10 rounded-3xl hover-lift fade-in delay-200 block">
+            <Link to="/beginner-index" className="content-card p-6 md:p-8 rounded-3xl hover-lift fade-in delay-200 block">
               <h3 className="font-display text-3xl font-semibold mb-4">{t.forBeginners}</h3>
               <p className="text-ink/70 text-lg mb-8 leading-relaxed">{t.beginnersDesc}</p>
               <ul className="space-y-3 mb-8">
@@ -351,7 +354,7 @@ const Home = () => {
             </Link>  
             
             {/* Practitioners Card */}
-            <Link to="/practitioner-index" className="content-card p-10 rounded-3xl hover-lift fade-in delay-300 bg-gradient-to-br from-matcha/5 to-gold/5 block">
+            <Link to="/practitioner-index" className="content-card p-6 md:p-8 rounded-3xl hover-lift fade-in delay-300 bg-gradient-to-br from-matcha/5 to-gold/5 block">
               <h3 className="font-display text-3xl font-semibold mb-4">{t.forPractitioners}</h3>
               <p className="text-ink/70 text-lg mb-8 leading-relaxed">{t.practitionersDesc}</p>
               <div className="mb-8">
@@ -443,7 +446,7 @@ const Home = () => {
                 <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'フォーラム' : 'Forum'}</a></li>
                 <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'イベント' : 'Events'}</a></li>
                 <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'ニュースレター' : 'Newsletter'}</a></li>
-                <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お問い合わせ' : 'Contact'}</a></li>
+                <li><Link to="/contact" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お問い合わせ' : 'Contact'}</Link></li>
               </ul>
             </div>
           </div>
