@@ -15,8 +15,8 @@ const PractitionerIndex = () => {
         </svg>
       </div>
       <div className="flex flex-col">
-        <span className="font-display text-2xl font-semibold tracking-tight">茶乃間</span>
-        <span className="text-ink/50 font-light tracking-wider text-sm">Cha no Ma</span>
+        <span className="font-display text-xl md:text-2xl font-semibold tracking-tight">茶乃間</span>
+        <span className="text-ink/50 font-light tracking-wider text-xs md:text-sm">Cha no Ma</span>
       </div>
     </Link>
   );
@@ -31,6 +31,11 @@ const PractitionerIndex = () => {
           title: '茶杓の銘',
           description: '各月の茶杓の銘とその意味を詳しく解説。季節感あふれる美しい言葉の世界を学べます。',
           link: '/chashaku'
+        },
+        {
+          title: '茶花',
+          description: '季節ごとの茶花の種類と特徴を学びます。茶室を彩る花の美学を理解できます。',
+          link: '/chabana'
         },
         {
           title: '禅語解説',
@@ -158,13 +163,13 @@ const PractitionerIndex = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-gold/5 to-paper">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-7xl font-bold text-ink mb-6">
+          <h1 className="font-display text-2xl md:text-5xl font-bold text-ink mb-4 md:mb-6">
             {t.title}
           </h1>
-          <p className="text-2xl text-ink/70 font-light mb-8">
+          <p className="text-lg md:text-2xl text-ink/70 font-light mb-6 md:mb-8">
             {t.subtitle}
           </p>
-          <p className="text-lg text-ink/60 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-ink/60 max-w-3xl mx-auto">
             {t.intro}
           </p>
         </div>
@@ -172,24 +177,24 @@ const PractitionerIndex = () => {
 
       {/* Content Sections */}
       <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto space-y-6">
+        <div className="max-w-6xl mx-auto space-y-4 md:space-y-6">
           {t.sections.map((section, index) => (
             <Link 
               key={index}
               to={section.link}
-              className="content-card p-10 rounded-3xl block group bg-gradient-to-br from-white to-gold/5"
+              className="content-card p-6 md:p-10 rounded-3xl block group bg-gradient-to-br from-white to-gold/5"
             >
               <div className="flex justify-between items-center">
                 <div className="flex-1">
-                  <h2 className="font-display text-4xl font-bold mb-3 group-hover:text-gold transition-colors">
+                  <h2 className="font-display text-xl md:text-4xl font-bold mb-2 md:mb-3 group-hover:text-gold transition-colors">
                     {section.title}
                   </h2>
-                  <p className="text-xl text-ink/70 leading-relaxed">
+                  <p className="text-sm md:text-xl text-ink/70 leading-relaxed">
                     {section.description}
                   </p>
                 </div>
-                <div className="text-gold opacity-0 group-hover:opacity-100 transition-opacity">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="text-gold opacity-0 group-hover:opacity-100 transition-opacity ml-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="md:w-8 md:h-8">
                     <path d="M9 18l6-6-6-6"/>
                   </svg>
                 </div>

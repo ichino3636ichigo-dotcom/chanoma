@@ -66,7 +66,7 @@ const Home = () => {
         tools: '茶道具',
         maps: '茶室マップ',
         advanced: {
-          items: ['茶杓の銘', '禅語解説', '焼き物図鑑', '裂地コレクション']
+          items: ['茶杓の銘', '禅語解説', '焼き物図鑑', '裂地コレクション', '茶花']
         }
       }
     },
@@ -327,24 +327,24 @@ const Home = () => {
 
             {/* Beginners Card */}
             <Link to="/beginner-index" className="content-card p-6 md:p-8 rounded-3xl hover-lift fade-in delay-200 block">
-              <h3 className="font-display text-3xl font-semibold mb-4">{t.forBeginners}</h3>
-              <p className="text-ink/70 text-lg mb-8 leading-relaxed">{t.beginnersDesc}</p>
+              <h3 className="font-display text-xl md:text-2xl font-semibold mb-4">{t.forBeginners}</h3>
+              <p className="text-ink/70 text-xs md:text-base mb-8 leading-relaxed">{t.beginnersDesc}</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-matcha rounded-full flex-shrink-0"></div>
-                  <span>{t.content.basics}</span>
+                  <span className="text-xs md:text-sm">{t.content.basics}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-matcha rounded-full flex-shrink-0"></div>
-                  <span>{t.content.history}</span>
+                  <span className="text-xs md:text-sm">{t.content.history}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-matcha rounded-full flex-shrink-0"></div>
-                  <span>{t.content.tools}</span>
+                  <span className="text-xs md:text-sm">{t.content.tools}</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-matcha rounded-full flex-shrink-0"></div>
-                  <span>{t.content.maps}</span>
+                  <span className="text-xs md:text-sm">{t.content.maps}</span>
                 </li>
               </ul>
               <div className="w-full py-4 border-2 border-matcha text-matcha rounded-full font-medium hover:bg-matcha hover:text-paper transition-all group flex items-center justify-center">
@@ -355,15 +355,15 @@ const Home = () => {
             
             {/* Practitioners Card */}
             <Link to="/practitioner-index" className="content-card p-6 md:p-8 rounded-3xl hover-lift fade-in delay-300 bg-gradient-to-br from-matcha/5 to-gold/5 block">
-              <h3 className="font-display text-3xl font-semibold mb-4">{t.forPractitioners}</h3>
-              <p className="text-ink/70 text-lg mb-8 leading-relaxed">{t.practitionersDesc}</p>
+              <h3 className="font-display text-lg md:text-2xl font-semibold mb-4">{t.forPractitioners}</h3>
+              <p className="text-ink/70 text-xs md:text-base mb-8 leading-relaxed">{t.practitionersDesc}</p>
               <div className="mb-8">
-                <p className="font-semibold mb-3 text-lg">{t.content.advanced.title}</p>
+                <p className="font-semibold mb-3 text-sm md:text-base">{t.content.advanced.title}</p>
                 <ul className="space-y-3">
                   {t.content.advanced.items.map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-gold rounded-full flex-shrink-0"></div>
-                      <span>{item}</span>
+                      <span className="text-xs md:text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -373,9 +373,9 @@ const Home = () => {
                 <ChevronRight className="inline ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </div>
             </Link>
-          </div>
-        </div>
-      </section>
+          </div>    {/* grid の閉じタグ */}
+        </div>      {/* max-w-6xl の閉じタグ */}
+      </section>    {/* Audience Selection section の閉じタグ */}
 
       {/* Quote Section */}
       <section className="py-32 px-6 bg-ink text-paper relative overflow-hidden">

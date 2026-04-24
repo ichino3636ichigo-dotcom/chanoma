@@ -13,6 +13,7 @@ import Pottery from './pages/Pottery';
 import Fabrics from './pages/Fabrics';
 import Contribute from './pages/Contribute';
 import Contact from './pages/Contact';
+import Chabana from './pages/Chabana';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/fabrics" element={<Fabrics />} />
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/chabana" element={<Chabana />} />
       </Routes>
     </Router>
   );

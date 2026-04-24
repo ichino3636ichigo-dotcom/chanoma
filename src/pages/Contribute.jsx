@@ -167,7 +167,7 @@ const Contribute = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-matcha/5 to-paper">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-7xl font-bold text-ink mb-6">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-6">
             {t.title}
           </h1>
           <p className="text-2xl text-ink/70 font-light mb-8">

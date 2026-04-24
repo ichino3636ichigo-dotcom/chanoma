@@ -344,13 +344,13 @@ const Chashaku = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-12 px-6 bg-gradient-to-b from-matcha/5 to-paper">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-7xl font-bold text-ink mb-6">
+          <h1 className="font-display text-3xl md:text-6xl font-bold text-ink mb-4 md:mb-6">
             {t.title}
           </h1>
-          <p className="text-2xl text-ink/70 font-light mb-8">
+          <p className="text-lg md:text-2xl text-ink/70 font-light mb-6 md:mb-8">
             {t.subtitle}
           </p>
-          <p className="text-lg text-ink/60 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-ink/60 max-w-3xl mx-auto">
             {t.intro}
           </p>
         </div>
@@ -382,9 +382,9 @@ const Chashaku = () => {
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Month Info */}
-          <div className="content-card p-10 rounded-3xl mb-12">
+          <div className="content-card p-6 md:p-10 rounded-3xl mb-12">
             <div className="flex-1">
-              <h2 className="font-display text-5xl font-bold mb-6">
+              <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
                 {currentMonth.month}月 {t.monthNames[currentMonth.month - 1]}
               </h2>
               
@@ -419,14 +419,14 @@ const Chashaku = () => {
           </div>
 
           {/* Mei Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {currentMonth.mei.map((mei, index) => (
-              <div key={index} className="content-card p-6 rounded-2xl hover:scale-105 transition-transform">
-                <div className="border-l-4 border-matcha pl-4 mb-4">
-                  <h3 className="font-display text-3xl font-bold text-ink mb-1">
+              <div key={index} className="content-card p-4 md:p-6 rounded-2xl hover:scale-105 transition-transform">
+                <div className="border-l-4 border-matcha pl-3 md:pl-4 mb-3 md:mb-4">
+                  <h3 className="font-display text-xl md:text-3xl font-bold text-ink mb-1">
                     {mei.name}
                   </h3>
-                  <p className="text-sm text-matcha font-medium">{mei.reading}</p>
+                  <p className="text-xs md:text-sm text-matcha font-medium">{mei.reading}</p>
                 </div>
                 
                 <div className="space-y-3">

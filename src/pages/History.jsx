@@ -326,11 +326,25 @@ const History = () => {
             {language === 'ja' ? '茶道の歴史' : 'Tea Ceremony Timeline'}
           </h2>
           
-          <div className="space-y-8">
+          {/* Mobile Layout */}
+          <div className="md:hidden space-y-6">
+            {t.periods.map((period, index) => (
+              <div key={index} className="border-l-4 border-matcha pl-4">
+                <div className="mb-2">
+                  <span className="text-xs text-ink/50">{period.era}</span>
+                </div>
+                <h3 className="font-display text-xl font-bold mb-2">{period.title}</h3>
+                <p className="text-sm leading-relaxed text-ink/80">{period.content}</p>
+              </div>
+            ))}
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="hidden md:block space-y-8">
             {t.periods.map((period, index) => (
               <div key={index} className="flex gap-6">
                 {/* Left side - Era */}
-                <div className="w-32 md:w-40 flex-shrink-0 text-right pt-2">
+                <div className="w-40 flex-shrink-0 text-right pt-2">
                   <div className="text-sm text-ink/60 mb-1">{period.era.split('（')[1]?.replace('）', '')}</div>
                   <div className="font-display text-2xl font-bold text-matcha">{period.era.split('（')[0]}</div>
                 </div>
@@ -359,18 +373,33 @@ const History = () => {
       {/* Key Figures */}
       <section className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-center mb-12 text-matcha">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-matcha">
             {t.figures.title}
           </h2>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            {t.figures.people.map((person, index) => (
-              <div key={index} className="content-card p-6 rounded-2xl">
-                <h3 className="font-display text-2xl font-bold mb-1">{person.name}</h3>
-                <p className="text-sm text-matcha mb-3">{person.years}</p>
-                <p className="text-ink/70 leading-relaxed">{person.contribution}</p>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {t.figures.people.map((person, index) => {
+              const imageNames = ['eisai.jpg', 'muratajukou.jpg', 'takenojouou.jpg', 'sennnorikyu.jpg', 'furutaoribe.jpg', 'koborienshu.jpg'];
+              
+              return (
+                <div key={index} className="content-card rounded-2xl overflow-hidden">
+                  <img 
+                    src={`/images/${imageNames[index]}`} 
+                    alt={person.name}
+                    style={{
+                      width: '100%',
+                      height: index === 0 ? '450px' : '400px',
+                      objectFit: 'cover'
+                    }}
+                  />
+                  <div className="p-4 md:p-6 text-center">
+                    <h3 className="font-display text-lg md:text-2xl font-bold mb-1">{person.name}</h3>
+                    <p className="text-xs md:text-sm text-matcha mb-2 md:mb-3">{person.years}</p>
+                    <p className="text-sm md:text-base text-ink/70 leading-relaxed">{person.contribution}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

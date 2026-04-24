@@ -176,10 +176,10 @@ const Basics = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-matcha/5 to-paper">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-6xl md:text-7xl font-bold text-ink mb-6">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-6">
             {t.title}
           </h1>
-          <p className="text-2xl text-ink/70 font-light">
+          <p className="text-lg md:text-xl text-ink/70 font-light">
             {t.subtitle}
           </p>
         </div>
@@ -188,10 +188,10 @@ const Basics = () => {
       {/* Introduction */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-4xl font-bold text-matcha mb-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-matcha mb-6">
             {t.intro.title}
           </h2>
-          <p className="text-xl leading-relaxed text-ink/80">
+          <p className="text-base md:text-lg leading-relaxed text-ink/80">
             {t.intro.text}
           </p>
         </div>
@@ -200,10 +200,10 @@ const Basics = () => {
       {/* History */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-4xl font-bold text-matcha mb-6">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-matcha mb-6">
             {t.history.title}
           </h2>
-          <div className="text-lg leading-relaxed text-ink/80 whitespace-pre-line">
+          <div className="text-base md:text-lg leading-relaxed text-ink/80 whitespace-pre-line">
             {t.history.text}
           </div>
         </div>
@@ -212,19 +212,19 @@ const Basics = () => {
       {/* Shiki Shichisoku Introduction */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-5xl font-bold text-center mb-12">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">
             {t.shikishichisoku.title}
           </h2>
           
-          <p className="text-lg leading-relaxed text-ink/80 mb-6">
+          <p className="text-base md:text-lg leading-relaxed text-ink/80 mb-6">
             {t.shikishichisoku.intro}
           </p>
           <div className="p-6 bg-matcha/5 rounded-2xl border-l-4 border-matcha mb-6">
-            <p className="text-lg leading-relaxed text-ink/80 italic">
+            <p className="text-base md:text-lg leading-relaxed text-ink/80 italic">
               {t.shikishichisoku.story}
             </p>
           </div>
-          <p className="text-lg leading-relaxed text-ink/80">
+          <p className="text-base md:text-lg leading-relaxed text-ink/80">
             {t.shikishichisoku.conclusion}
           </p>
         </div>
@@ -233,23 +233,23 @@ const Basics = () => {
       {/* Four Principles */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-5xl font-bold text-center mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-4">
             {t.principles.title}
           </h2>
-          <p className="text-2xl text-center text-matcha font-semibold mb-16">
+          <p className="text-xl md:text-2xl text-center text-matcha font-semibold mb-16">
             {t.principles.subtitle}
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
             {t.principles.items.map((item, i) => (
-              <div key={i} className="content-card p-8 rounded-2xl hover:scale-105 transition-transform">
+              <div key={i} className="content-card p-6 md:p-8 rounded-2xl hover:scale-105 transition-transform">
                 <div className="flex items-start gap-6">
-                  <div className="w-20 h-20 bg-matcha/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-4xl font-bold text-matcha">{item.kanji}</span>
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-matcha/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <span className="font-display text-3xl md:text-4xl font-bold text-matcha">{item.kanji}</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-2xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-ink/70 leading-relaxed">{item.desc}</p>
+                    <h3 className="font-display text-xl md:text-2xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-sm md:text-base text-ink/70 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </div>
@@ -261,20 +261,20 @@ const Basics = () => {
       {/* Seven Rules */}
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-display text-4xl font-bold text-center mb-12 text-matcha">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-center mb-12 text-matcha">
             {language === 'ja' ? '七則' : 'Seven Rules'}
           </h2>
           
           <div className="space-y-4">
             {t.shikishichisoku.items.map((item, i) => (
-              <div key={i} className="content-card p-6 rounded-2xl hover:scale-102 transition-transform">
+              <div key={i} className="content-card p-5 md:p-6 rounded-2xl hover:scale-102 transition-transform">
                 <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 bg-matcha rounded-full flex items-center justify-center text-paper font-semibold flex-shrink-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-matcha rounded-full flex items-center justify-center text-paper font-semibold flex-shrink-0 text-sm md:text-base">
                     {i + 1}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-display text-xl font-semibold mb-2">{item.title}</h4>
-                    <p className="text-ink/70 leading-relaxed">{item.desc}</p>
+                    <h4 className="font-display text-lg md:text-xl font-semibold mb-2">{item.title}</h4>
+                    <p className="text-sm md:text-base text-ink/70 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </div>
