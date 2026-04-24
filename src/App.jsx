@@ -34,6 +34,7 @@ function App() {
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/chabana" element={<Chabana />} />
+        <Route path="/tearoom-map" element={<TeaRoomMap />} />
       </Routes>
     </Router>
   );

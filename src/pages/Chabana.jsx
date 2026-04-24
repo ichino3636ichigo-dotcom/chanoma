@@ -6,26 +6,29 @@ const Chabana = () => {
   const [language, setLanguage] = useState('ja');
   const [selectedMonth, setSelectedMonth] = useState(1);
 
-  const Logo = () => (
-    <Link to="/" className="flex items-center gap-3">
-      <div className="flex items-center justify-center w-10 h-10">
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <ellipse cx="60" cy="25" rx="8" ry="25" fill="#2D5016" transform="rotate(25 60 25)"/>
-          <ellipse cx="35" cy="50" rx="8" ry="25" fill="#2D5016" transform="rotate(-25 35 50)"/>
-          <ellipse cx="60" cy="75" rx="8" ry="25" fill="#2D5016" transform="rotate(15 60 75)"/>
-        </svg>
-      </div>
-      <div className="flex flex-col">
-        <span className="font-display text-xl md:text-2xl font-semibold tracking-tight">茶乃間</span>
-        <span className="text-ink/50 font-light tracking-wider text-xs md:text-sm">Cha no Ma</span>
-      </div>
-    </Link>
-  );
+  const Logo = ({ size = 'md' }) => {
+    const sizes = {
+      sm: { container: 'gap-2', img: 'w-8 h-8', title: 'text-xl', subtitle: 'text-xs' },
+      md: { container: 'gap-3', img: 'w-10 h-10', title: 'text-2xl', subtitle: 'text-sm' },
+      lg: { container: 'gap-4', img: 'w-12 h-12', title: 'text-3xl', subtitle: 'text-base' }
+    };
+    const s = sizes[size];
+    
+    return (
+      <Link to="/" className={`flex items-center ${s.container}`}>
+        <img src="/icon.png" alt="茶乃間" className={s.img} />
+        <div className="flex flex-col">
+          <span className="font-display text-xl md:text-2xl font-semibold tracking-tight">茶乃間</span>
+          <span className="text-ink/50 font-light tracking-wider text-xs md:text-sm">Cha no Ma</span>
+        </div>
+      </Link>
+    );
+  };
 
   const content = {
     ja: {
       title: '茶花',
-      subtitle: '季節を映す一輪の美',
+      subtitle: '「花は野にあるように」',
       intro: '茶室に活ける花は、季節の移ろいと茶人の心を表現します。控えめでありながら存在感のある、茶道ならではの花の美学を学びましょう。',
       monthNames: ['睦月', '如月', '弥生', '卯月', '皐月', '水無月', '文月', '葉月', '長月', '神無月', '霜月', '師走'],
       months: [

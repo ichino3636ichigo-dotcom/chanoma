@@ -6,6 +6,8 @@ const Home = () => {
   const [language, setLanguage] = useState('ja');
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstallButton, setShowInstallButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -13,24 +15,43 @@ const Home = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstallButton(true);
+    };
+    
+    window.addEventListener('beforeinstallprompt', handler);
+    
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    
+    if (outcome === 'accepted') {
+      setShowInstallButton(false);
+    }
+    
+    setDeferredPrompt(null);
+  };
+
   // ロゴコンポーネント
   const Logo = ({ size = 'md' }) => {
     const sizes = {
-      sm: { container: 'gap-2', svg: 'w-8 h-8', title: 'text-xl', subtitle: 'text-xs' },
-      md: { container: 'gap-3', svg: 'w-10 h-10', title: 'text-2xl', subtitle: 'text-sm' },
-      lg: { container: 'gap-4', svg: 'w-12 h-12', title: 'text-3xl', subtitle: 'text-base' }
+      sm: { container: 'gap-2', img: 'w-8 h-8', title: 'text-xl', subtitle: 'text-xs' },
+      md: { container: 'gap-3', img: 'w-10 h-10', title: 'text-2xl', subtitle: 'text-sm' },
+      lg: { container: 'gap-4', img: 'w-12 h-12', title: 'text-3xl', subtitle: 'text-base' }
     };
     const s = sizes[size];
     
     return (
       <Link to="/" className={`flex items-center ${s.container}`}>
-        <div className={`flex items-center justify-center ${s.svg}`}>
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <ellipse cx="60" cy="25" rx="8" ry="25" fill="#2D5016" transform="rotate(25 60 25)"/>
-            <ellipse cx="35" cy="50" rx="8" ry="25" fill="#2D5016" transform="rotate(-25 35 50)"/>
-            <ellipse cx="60" cy="75" rx="8" ry="25" fill="#2D5016" transform="rotate(15 60 75)"/>
-          </svg>
-        </div>
+        <img src="/icon.png" alt="茶乃間" className={s.img} />
         <div className="flex flex-col">
           <span className="font-display text-xl md:text-2xl font-semibold tracking-tight">茶乃間</span>
           <span className="text-ink/50 font-light tracking-wider text-xs md:text-sm">Cha no Ma</span>
@@ -216,12 +237,22 @@ const Home = () => {
             </select>
           </div>
           
-          <button 
-            className="md:hidden p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            {showInstallButton && (
+              <button
+                onClick={handleInstallClick}
+                className="px-3 py-2 bg-matcha text-paper rounded-full text-xs font-medium hover:bg-matcha-dark transition-all"
+              >
+                アプリ追加
+              </button>
+            )}
+            <button 
+              className="p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
         
         {menuOpen && (
@@ -248,7 +279,7 @@ const Home = () => {
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="space-y-8 fade-in">
-            <div className="inline-block px-4 py-2 bg-matcha/10 rounded-full border border-matcha/20">
+            <div className="inline-block px-4 py-2 bg-mtacha/10 rounded-full border border-matcha/20">
               <span className="text-matcha font-medium text-sm tracking-wide">SINCE 2026</span>
             </div>
             
