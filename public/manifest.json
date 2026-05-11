@@ -4,7 +4,7 @@
   "description": "茶道をポケットに。いつでも、どこでも、茶の心",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8f7f4",
+  "background_color": "#ffffff",
   "theme_color": "#7fa67f",
   "orientation": "portrait",
   "icons": [

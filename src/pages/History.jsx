@@ -68,6 +68,11 @@ const History = () => {
         title: '茶道を築いた人々',
         people: [
           {
+            name: '千利休（せんのりきゅう）',
+            years: '1522-1591',
+            contribution: '侘び茶を大成し、茶道の精神と美学を確立。「和敬清寂」を説き、茶道を芸術の域にまで高めました。'
+          },
+          {
             name: '栄西（えいさい）',
             years: '1141-1215',
             contribution: '中国から抹茶と禅を伝えた僧侶。『喫茶養生記』を著し、茶の効能を説きました。'
@@ -82,11 +87,7 @@ const History = () => {
             years: '1502-1555',
             contribution: '珠光の精神を継承し、茶の湯の精神性を深めました。利休の師として知られています。'
           },
-          {
-            name: '千利休（せんのりきゅう）',
-            years: '1522-1591',
-            contribution: '侘び茶を大成し、茶道の精神と美学を確立。「和敬清寂」を説き、茶道を芸術の域にまで高めました。'
-          },
+          
           {
             name: '古田織部（ふるたおりべ）',
             years: '1544-1615',
@@ -163,6 +164,12 @@ const History = () => {
       figures: {
         title: 'Pioneers of Tea Ceremony',
         people: [
+
+          {
+            name: 'Sen no Rikyu',
+            years: '1522-1591',
+            contribution: 'Perfected wabi-cha and established the spirit and aesthetics of tea ceremony. Taught "wa-kei-sei-jaku" and elevated tea ceremony to an art form.'
+          },
           {
             name: 'Eisai',
             years: '1141-1215',
@@ -178,11 +185,7 @@ const History = () => {
             years: '1502-1555',
             contribution: 'Inherited Juko\'s spirit and deepened the spirituality of tea ceremony. Known as Rikyu\'s teacher.'
           },
-          {
-            name: 'Sen no Rikyu',
-            years: '1522-1591',
-            contribution: 'Perfected wabi-cha and established the spirit and aesthetics of tea ceremony. Taught "wa-kei-sei-jaku" and elevated tea ceremony to an art form.'
-          },
+          
           {
             name: 'Furuta Oribe',
             years: '1544-1615',
@@ -382,7 +385,7 @@ const History = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {t.figures.people.map((person, index) => {
-              const imageNames = ['eisai.jpg', 'muratajukou.jpg', 'takenojouou.jpg', 'sennnorikyu.jpg', 'furutaoribe.jpg', 'koborienshu.jpg'];
+              const imageNames = ['sennnorikyu.jpg', 'eisai.jpg', 'muratajukou.jpg', 'takenojouou.jpg', 'furutaoribe.jpg', 'koborienshu.jpg'];
               
               return (
                 <div key={index} className="content-card rounded-2xl overflow-hidden">

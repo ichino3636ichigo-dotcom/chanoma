@@ -80,7 +80,7 @@ const Home = () => {
     ja: {
       hero: {
         title: '茶道をポケットに',
-        subtitle: 'いつでも、どこでも、茶の心'
+        subtitle: 'いつでも、どこでも、茶道を学ぶ'
       },
       forBeginners: '初めて茶道に触れる方へ',
       forPractitioners: '日々のお稽古を充実させたい方へ',
@@ -444,7 +444,7 @@ const Home = () => {
               </div>
               <p className="text-paper/70 leading-relaxed mb-6">
                 {language === 'ja' 
-                  ? '世界中どこからでも、茶道を学ぶことができるプラットフォーム。伝統と革新が出会う場所。' 
+                  ? '世界中どこからでも、茶道を学ぶことができるプラットフォーム。茶道を新しい形で。' 
                   : 'A platform to learn the Way of Tea from anywhere in the world. Where tradition meets innovation.'}
               </p>
               <div className="flex gap-4">
