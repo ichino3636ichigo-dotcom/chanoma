@@ -394,7 +394,7 @@ const History = () => {
                     alt={person.name}
                     style={{
                       width: '100%',
-                      height: index === 0 ? '450px' : '400px',
+                      height: index === 0 ? '400px' : '450px',
                       objectFit: 'cover'
                     }}
                   />
