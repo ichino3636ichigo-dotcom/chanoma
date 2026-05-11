@@ -24,10 +24,26 @@ const Home = () => {
     
     window.addEventListener('beforeinstallprompt', handler);
     
+    // iOSの検出
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+    
+    if (isIOS && !isStandalone) {
+      setShowInstallButton(true);
+    }
+    
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
   const handleInstallClick = async () => {
+    // iOS の場合はアラート表示
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    if (isIOS) {
+      alert('ホーム画面に追加するには：\n1. 共有ボタン（□↑）をタップ\n2. 「ホーム画面に追加」を選択\n3. 「追加」をタップ');
+      return;
+    }
+    
     if (!deferredPrompt) return;
     
     deferredPrompt.prompt();
@@ -225,18 +241,6 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Logo size="md" />
           
-          <div className="hidden md:flex items-center gap-8">
-            <select 
-              value={language} 
-              onChange={(e) => setLanguage(e.target.value)}
-              className="bg-transparent border border-matcha rounded-full px-4 py-2 font-medium text-sm cursor-pointer hover:bg-matcha hover:text-paper transition-all"
-            >
-              {languages.map(lang => (
-                <option key={lang.code} value={lang.code}>{lang.name}</option>
-              ))}
-            </select>
-          </div>
-          
           <div className="md:hidden flex items-center gap-4">
             {showInstallButton && (
               <button
@@ -257,15 +261,7 @@ const Home = () => {
         
         {menuOpen && (
           <div className="md:hidden bg-paper border-t border-matcha/10 p-6">
-            <select 
-              value={language} 
-              onChange={(e) => setLanguage(e.target.value)}
-              className="w-full bg-transparent border border-matcha rounded-full px-4 py-3 font-medium cursor-pointer"
-            >
-              {languages.map(lang => (
-                <option key={lang.code} value={lang.code}>{lang.name}</option>
-              ))}
-            </select>
+            {/* メニュー内容があればここに */}
           </div>
         )}
       </nav>
@@ -291,11 +287,19 @@ const Home = () => {
               {t.hero.subtitle}
             </p>
             
-            <div className="flex gap-4 pt-8 justify-center">
-              <button className="px-6 py-3 md:px-8 md:py-4 border-2 border-ink rounded-full font-medium hover:bg-ink hover:text-paper transition-all hover:scale-105">
-                <Globe className="inline mr-2" size={20} />
-                {languages.find(l => l.code === language)?.name}
-              </button>
+            <div className="flex gap-4 pt-8 justify-center items-center">
+              <div className="flex items-center gap-3 border-2 border-ink rounded-full px-6 py-3 md:px-8 md:py-4 hover:bg-ink hover:text-paper transition-all group">
+                <Globe className="group-hover:text-paper" size={20} />
+                <select 
+                  value={language} 
+                  onChange={(e) => setLanguage(e.target.value)}
+                  className="bg-transparent font-medium cursor-pointer outline-none"
+                >
+                  {languages.map(lang => (
+                    <option key={lang.code} value={lang.code}>{lang.name}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
         </div>
