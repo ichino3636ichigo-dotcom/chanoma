@@ -30,6 +30,11 @@ const PractitionerIndex = () => {
       intro: 'お稽古の辞書として使える専門的な知識をまとめました。茶杓の銘から禅語、焼き物、裂地まで、より深い茶道の世界を探求できます。',
       sections: [
         {
+          title: 'お稽古ノート',
+          description: 'お稽古で学んだことや先生のご指導を記録。スマホでもパソコンでも、自分だけのノートを開けます。',
+          link: '/keiko-note'
+        },
+        {
           title: '茶杓の銘',
           description: '各月の茶杓の銘とその意味を詳しく解説。季節感あふれる美しい言葉の世界を学べます。',
           link: '/chashaku'
@@ -61,6 +66,11 @@ const PractitionerIndex = () => {
       subtitle: 'Deepen Your Tea Ceremony Practice',
       intro: 'Specialized knowledge to serve as your practice dictionary. Explore the deeper world of tea ceremony from tea scoop names to Zen phrases, pottery, and fabrics.',
       sections: [
+        {
+          title: 'Practice Notes',
+          description: 'Record what you learn in each lesson and your teacher\'s guidance. Your private notebook, on phone or computer.',
+          link: '/keiko-note'
+        },
         {
           title: 'Tea Scoop Names',
           description: 'Detailed explanations of seasonal tea scoop names (mei) and their meanings throughout the year.',

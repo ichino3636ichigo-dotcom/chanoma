@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Globe, BookOpen, Map, ChevronRight, Menu, X, Users } from 'lucide-react';
+import { Globe, BookOpen, Map, ChevronRight, Menu, X, Users, NotebookPen, Lock, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -97,6 +97,19 @@ const Home = () => {
       },
       pathTitle: 'あなたに合った学び',
       pathSubtitle: 'レベルと目的に応じた最適なコンテンツ',
+      keiko: {
+        label: 'NEW',
+        title: 'お稽古ノート',
+        lead: '今日の学びを、次のお稽古へ',
+        desc: 'お点前で教わったこと、先生のご指導、次回への課題。お稽古のあとにスマホでさっと書き留めて、いつでも見返せます。',
+        points: ['自分だけが見られる', 'スマホでもパソコンでも同じノート', 'お道具やしつらえも記録できる'],
+        cta: 'ノートを開く',
+        sampleDate: '11月11日(水)',
+        sampleTitle: '薄茶点前（棚）',
+        sampleBody: '柄杓を構えるとき、肘が上がらないように。',
+        sampleNextLabel: '次回への課題',
+        sampleNext: '茶筅通しをゆっくり、音を立てずに。'
+      },
       content: {
         basics: '茶道の基本',
         history: '歴史と文化',
@@ -127,6 +140,19 @@ const Home = () => {
       },
       pathTitle: 'Choose Your Path',
       pathSubtitle: 'Tailored content for your level and goals',
+      keiko: {
+        label: 'NEW',
+        title: 'Practice Notes',
+        lead: 'Carry today’s lesson into the next',
+        desc: 'What you practiced, your teacher’s guidance, and what to work on next. Jot it down on your phone after each lesson and look back anytime.',
+        points: ['Private to you', 'Same notes on phone and computer', 'Record utensils and the setting too'],
+        cta: 'Open my notes',
+        sampleDate: 'Wed, Nov 11',
+        sampleTitle: 'Usucha with tana',
+        sampleBody: 'Keep the elbow down when holding the ladle.',
+        sampleNextLabel: 'For next time',
+        sampleNext: 'Rinse the whisk slowly and quietly.'
+      },
       content: {
         basics: 'Basics',
         history: 'History & Culture',
@@ -412,6 +438,60 @@ const Home = () => {
         </div>      {/* max-w-6xl の閉じタグ */}
       </section>    {/* Audience Selection section の閉じタグ */}
 
+      {/* お稽古ノート */}
+      <section className="py-24 md:py-32 px-6 tea-pattern">
+        <div className="max-w-6xl mx-auto">
+          <div className="content-card rounded-3xl p-6 md:p-12 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+            <div>
+              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest rounded-full mb-5" style={{ color: '#8a6d14', background: 'rgba(212, 175, 55, 0.15)' }}>
+                {(t.keiko || translations.ja.keiko).label}
+              </span>
+              <h2 className="font-display text-3xl md:text-5xl font-bold mb-3 flex items-center gap-3">
+                <NotebookPen className="flex-shrink-0" size={36} style={{ color: '#5d7d5d' }} />
+                {(t.keiko || translations.ja.keiko).title}
+              </h2>
+              <p className="text-lg md:text-xl mb-5" style={{ color: '#5d7d5d' }}>{(t.keiko || translations.ja.keiko).lead}</p>
+              <p className="text-ink/70 text-sm md:text-base leading-relaxed mb-6">{(t.keiko || translations.ja.keiko).desc}</p>
+              <ul className="space-y-3 mb-8">
+                {(t.keiko || translations.ja.keiko).points.map((point, i) => {
+                  const Icon = [Lock, Smartphone, BookOpen][i];
+                  return (
+                    <li key={i} className="flex items-center gap-3 text-sm md:text-base">
+                      <span className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(127, 166, 127, 0.15)' }}>
+                        <Icon size={16} style={{ color: '#5d7d5d' }} />
+                      </span>
+                      {point}
+                    </li>
+                  );
+                })}
+              </ul>
+              <Link
+                to="/keiko-note"
+                className="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 text-white rounded-full font-medium hover:shadow-2xl transition-all hover:scale-105 group"
+                style={{ background: '#5d7d5d' }}
+              >
+                {(t.keiko || translations.ja.keiko).cta}
+                <ChevronRight className="inline ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
+            </div>
+
+            {/* ノートの見本 */}
+            <div className="relative" aria-hidden="true">
+              <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl" style={{ background: 'rgba(127, 166, 127, 0.15)' }}></div>
+              <div className="relative rounded-2xl p-6 md:p-8" style={{ background: '#f8f7f4', border: '1px solid rgba(127, 166, 127, 0.3)' }}>
+                <p className="text-sm mb-1" style={{ color: '#5d7d5d' }}>{(t.keiko || translations.ja.keiko).sampleDate}</p>
+                <p className="font-display text-2xl font-bold mb-3">{(t.keiko || translations.ja.keiko).sampleTitle}</p>
+                <p className="text-ink/70 leading-relaxed mb-5">{(t.keiko || translations.ja.keiko).sampleBody}</p>
+                <div className="rounded-r-xl px-4 py-3" style={{ background: 'rgba(127, 166, 127, 0.12)', borderLeft: '4px solid #7fa67f' }}>
+                  <p className="text-sm font-semibold mb-1" style={{ color: '#5d7d5d' }}>{(t.keiko || translations.ja.keiko).sampleNextLabel}</p>
+                  <p className="text-ink/80">{(t.keiko || translations.ja.keiko).sampleNext}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quote Section */}
       <section className="py-32 px-6 bg-ink text-paper relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -477,6 +557,7 @@ const Home = () => {
             <div>
               <h4 className="font-display text-xl font-semibold mb-4">{language === 'ja' ? 'コミュニティ' : 'Community'}</h4>
               <ul className="space-y-2 text-paper/70">
+                <li><Link to="/keiko-note" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お稽古ノート' : 'Practice Notes'}</Link></li>
                 <li><Link to="/contribute" className="hover:text-matcha transition-colors">{language === 'ja' ? '情報を投稿' : 'Contribute'}</Link></li>
                 <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'フォーラム' : 'Forum'}</a></li>
                 <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'イベント' : 'Events'}</a></li>

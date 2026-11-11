@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -15,11 +16,15 @@ import Contribute from './pages/Contribute';
 import Contact from './pages/Contact';
 import Chabana from './pages/Chabana';
 
+// お稽古ノートはFirebaseを使うので、開いたときだけ読み込む（他のページを重くしない）
+const KeikoNote = lazy(() => import('./pages/KeikoNote'));
+
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/beginner-index" element={<BeginnerIndex />} />
@@ -35,8 +40,10 @@ function App() {
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/chabana" element={<Chabana />} />
+        <Route path="/keiko-note" element={<KeikoNote />} />
         <Route path="/tearoom-map" element={<TeaRoomMap />} />
       </Routes>
+      </Suspense>
     </Router>
   );
 }
