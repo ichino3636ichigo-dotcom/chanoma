@@ -15,6 +15,7 @@ import Fabrics from './pages/Fabrics';
 import Contribute from './pages/Contribute';
 import Contact from './pages/Contact';
 import Chabana from './pages/Chabana';
+import About from './pages/About';
 
 // お稽古ノートはFirebaseを使うので、開いたときだけ読み込む（他のページを重くしない）
 const KeikoNote = lazy(() => import('./pages/KeikoNote'));
@@ -40,6 +41,7 @@ function App() {
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/chabana" element={<Chabana />} />
+        <Route path="/about" element={<About />} />
         <Route path="/keiko-note" element={<KeikoNote />} />
         <Route path="/tearoom-map" element={<TeaRoomMap />} />
       </Routes>

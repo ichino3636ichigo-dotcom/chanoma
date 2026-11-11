@@ -208,6 +208,15 @@ const BeginnerIndex = () => {
           <p className="text-paper/60 text-sm mt-6">
             © 2026 茶乃間 (Chanoma). {language === 'ja' ? 'すべての権利を保有' : 'All rights reserved'}.
           </p>
+          <p className="text-sm mt-3">
+            <Link to="/about" style={{ color: 'rgba(248, 247, 244, 0.6)' }} className="underline underline-offset-4 hover:opacity-80">
+              {language === 'ja' ? '運営者情報' : 'About'}
+            </Link>
+            <span className="mx-3" style={{ color: 'rgba(248, 247, 244, 0.3)' }}>|</span>
+            <Link to="/contact" style={{ color: 'rgba(248, 247, 244, 0.6)' }} className="underline underline-offset-4 hover:opacity-80">
+              {language === 'ja' ? 'お問い合わせ' : 'Contact'}
+            </Link>
+          </p>
         </div>
       </footer>
     </div>

@@ -714,6 +714,9 @@ const KeikoNote = () => {
 
       <footer className="py-10 px-6 text-center" style={{ background: 'var(--ink)', color: 'rgba(248,247,244,0.6)' }}>
         <p className="text-sm">© 2026 茶乃間 (Chanoma)</p>
+        <p className="text-sm mt-3">
+          <Link to="/about" style={{ color: 'inherit' }} className="underline underline-offset-4">{language === 'ja' ? '運営者情報' : 'About'}</Link>
+        </p>
       </footer>
     </div>
   );

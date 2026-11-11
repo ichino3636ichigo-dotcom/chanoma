@@ -492,28 +492,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quote Section */}
-      <section className="py-32 px-6 bg-ink text-paper relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-matcha rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="mb-8 fade-in">
-            <span className="text-gold text-8xl font-display">"</span>
-          </div>
-          <blockquote className="font-display text-4xl md:text-5xl font-light leading-relaxed mb-12 fade-in delay-100">
-            {language === 'ja' ? '一期一会' : 'Ichi-go Ichi-e'}
-          </blockquote>
-          <p className="text-xl text-paper/80 font-light fade-in delay-200">
-            {language === 'ja' 
-              ? '一生に一度の出会い。この瞬間を大切に。' 
-              : 'One time, one meeting. Treasure every moment.'}
-          </p>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-ink text-paper py-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -559,9 +537,7 @@ const Home = () => {
               <ul className="space-y-2 text-paper/70">
                 <li><Link to="/keiko-note" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お稽古ノート' : 'Practice Notes'}</Link></li>
                 <li><Link to="/contribute" className="hover:text-matcha transition-colors">{language === 'ja' ? '情報を投稿' : 'Contribute'}</Link></li>
-                <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'フォーラム' : 'Forum'}</a></li>
-                <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'イベント' : 'Events'}</a></li>
-                <li><a href="#" className="hover:text-matcha transition-colors">{language === 'ja' ? 'ニュースレター' : 'Newsletter'}</a></li>
+                <li><Link to="/about" className="hover:text-matcha transition-colors">{language === 'ja' ? '運営者情報' : 'About'}</Link></li>
                 <li><Link to="/contact" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お問い合わせ' : 'Contact'}</Link></li>
               </ul>
             </div>
