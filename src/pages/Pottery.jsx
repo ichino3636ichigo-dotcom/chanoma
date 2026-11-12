@@ -794,11 +794,13 @@ const Pottery = () => {
       {/* Detail Modal */}
       {selectedPottery && (
         <div 
-          className="fixed inset-0 bg-ink/50 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          style={{ background: 'rgba(26, 26, 26, 0.55)' }}
           onClick={() => setSelectedPottery(null)}
         >
           <div 
-            className="bg-paper rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 border border-matcha/20"
+            className="rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8"
+            style={{ background: '#f8f7f4', border: '1px solid rgba(127, 166, 127, 0.3)', boxShadow: '0 20px 60px rgba(0, 0, 0, 0.25)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">

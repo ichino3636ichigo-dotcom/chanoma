@@ -1658,11 +1658,13 @@ const Fabrics = () => {
       {/* Detail Modal */}
       {selectedFabric && (
         <div 
-          className="fixed inset-0 bg-ink/50 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          style={{ background: 'rgba(26, 26, 26, 0.55)' }}
           onClick={() => setSelectedFabric(null)}
         >
           <div 
-            className="bg-paper rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 border border-matcha/20"
+            className="rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8"
+            style={{ background: '#f8f7f4', border: '1px solid rgba(127, 166, 127, 0.3)', boxShadow: '0 20px 60px rgba(0, 0, 0, 0.25)' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
@@ -1687,11 +1689,11 @@ const Fabrics = () => {
             
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-matcha text-white rounded-full text-sm">
+                <span className="px-3 py-1 rounded-full text-sm" style={{ background: '#5d7d5d', color: '#fff' }}>
                   {selectedFabric.type}
                 </span>
                 {selectedFabric.use?.map(use => (
-                  <span key={use} className="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-sm">
+                  <span key={use} className="px-3 py-1 rounded-full text-sm" style={{ background: 'rgba(127, 166, 127, 0.15)', color: '#4d6b4d' }}>
                     {use}
                   </span>
                 ))}
@@ -1724,7 +1726,7 @@ const Fabrics = () => {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedFabric.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-ink/5 text-ink/70 rounded-full text-sm">
+                      <span key={tag} className="px-3 py-1 rounded-full text-sm" style={{ background: 'rgba(26, 26, 26, 0.06)', color: 'rgba(26, 26, 26, 0.7)' }}>
                         #{tag}
                       </span>
                     ))}

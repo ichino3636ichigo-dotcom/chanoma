@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 黒いフッターの中では、ロゴ下の「Cha no Ma」を明るい色で表示する */
+footer .text-ink\/50 { color: rgba(248, 247, 244, 0.55); }

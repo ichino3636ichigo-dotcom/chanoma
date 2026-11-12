@@ -518,7 +518,8 @@ const Tools = () => {
       {/* Detail Modal */}
       {selectedTool && (
         <div 
-          className="fixed inset-0 bg-ink/50 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+          style={{ background: 'rgba(26, 26, 26, 0.55)' }}
           onClick={() => setSelectedTool(null)}
         >
           <div 
