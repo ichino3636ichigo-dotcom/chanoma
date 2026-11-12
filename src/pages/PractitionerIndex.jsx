@@ -35,6 +35,11 @@ const PractitionerIndex = () => {
           link: '/keiko-note'
         },
         {
+          title: '裏千家 歴代家元',
+          description: '利休から当代 坐忘斎まで十六代の系譜。親子・養子のつながりと、一人ひとりの人物像をたどれます。',
+          link: '/urasenke-lineage'
+        },
+        {
           title: '茶杓の銘',
           description: '各月の茶杓の銘とその意味を詳しく解説。季節感あふれる美しい言葉の世界を学べます。',
           link: '/chashaku'
@@ -70,6 +75,11 @@ const PractitionerIndex = () => {
           title: 'Practice Notes',
           description: 'Record what you learn in each lesson and your teacher\'s guidance. Your private notebook, on phone or computer.',
           link: '/keiko-note'
+        },
+        {
+          title: 'Urasenke Lineage',
+          description: 'Sixteen generations from Rikyū to the current head, with how each was connected and who they were.',
+          link: '/urasenke-lineage'
         },
         {
           title: 'Tea Scoop Names',

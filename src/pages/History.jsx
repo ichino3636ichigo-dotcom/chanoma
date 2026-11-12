@@ -438,6 +438,9 @@ const History = () => {
             <Link to="/basics" className="px-8 py-4 bg-matcha text-paper rounded-full font-medium hover:bg-matcha-dark transition-all hover:scale-105 shadow-lg">
               {language === 'ja' ? '茶道の基本' : 'Basics'}
             </Link>
+            <Link to="/urasenke-lineage" className="px-8 py-4 border-2 border-matcha text-matcha rounded-full font-medium hover:bg-matcha hover:text-paper transition-all hover:scale-105">
+              {language === 'ja' ? '裏千家 歴代家元' : 'Urasenke Lineage'}
+            </Link>
             <Link to="/tools" className="px-8 py-4 border-2 border-matcha text-matcha rounded-full font-medium hover:bg-matcha hover:text-paper transition-all hover:scale-105">
               {language === 'ja' ? '茶道具' : 'Tea Utensils'}
             </Link>
