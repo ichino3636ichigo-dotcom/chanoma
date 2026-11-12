@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, BookOpen, Map, ChevronRight, Menu, X, Users, NotebookPen, Lock, Smartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DailyWords from '../components/DailyWords';
 
 const Home = () => {
   const [language, setLanguage] = useState('ja');
@@ -330,6 +331,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* 今日のことば */}
+      <DailyWords language={language} />
 
       {/* Features Section */}
       

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Search } from 'lucide-react';
+import { ZEN_PHRASES } from '../data/zengo';
 
 const Zengo = () => {
   const [language, setLanguage] = useState('ja');
@@ -67,89 +68,7 @@ const Zengo = () => {
     }
   };
 
-  const zenPhrases = [
-    // 春
-    { kanji: '花', reading: 'か', meaning: '厳しい冬さを乗り越えて、光り輝く暖かな春到来を指す。心の華が開いて転迷開悟という。', season: 'spring', length: 1 },
-    { kanji: '春芳', reading: 'しゅんほう', meaning: '芳香な春の草のこと。', season: 'spring', length: 2 },
-    { kanji: '春風', reading: 'はるかぜ', meaning: '春に吹く暖かい風。穏やかな気候。', season: 'spring', length: 2 },
-    { kanji: '春光', reading: 'しゅんこう', meaning: '春の景色。', season: 'spring', length: 2 },
-    { kanji: '花月', reading: 'かげつ', meaning: '花と月。春夏秋冬の風雅を楽しむ、その道の達人の最もよい対象である。', season: 'spring', length: 2 },
-    { kanji: '桜花', reading: 'おうか', meaning: '桜の花。春の象徴。', season: 'spring', length: 2 },
-    { kanji: '暄風', reading: 'けんぷう', meaning: '春の風であり、陽風ともいわれる。暄は温暖の意味。', season: 'spring', length: 2 },
-    { kanji: '春風浩々', reading: 'しゅんぷうこうこう', meaning: '勇んで行くものと、淋しく送るものとの心の対比。「浩々」は広々としたさま。', season: 'spring', length: 4 },
-    { kanji: '雨後青山緑', reading: 'うごのせいざんみどりなり', meaning: '雨過ぎて、清々しい山のながめ。大雨が煩悩妄想の塵を洗い流して、うつくしい景色があらわれた。', season: 'spring', length: 5 },
-    { kanji: '桜花無尽蔵', reading: 'おうかむじんぞう', meaning: '一輪の桜花は短い命であるがそこに永遠の生命を見出す禅人の境涯。', season: 'spring', length: 5 },
-    { kanji: '春光日々新', reading: 'しゅんこうひびあらた', meaning: '春の景色は日を追って変化し、毎日毎日が新しいという意味。', season: 'spring', length: 5 },
-    { kanji: '百華春至', reading: 'ひゃっかはるにいたる', meaning: '春が来て数えきれないくらいの花が咲き乱れている様子。', season: 'spring', length: 4 },
-
-    // 夏
-    { kanji: '滴翠', reading: 'てきすい', meaning: '滴るような緑。生き生きとした様子。', season: 'summer', length: 2 },
-    { kanji: '青嵐', reading: 'あおあらし', meaning: '青葉を吹く強い風。初夏の力強さ。', season: 'summer', length: 2 },
-    { kanji: '松濤', reading: 'しょうとう', meaning: '「濤」は波立つさま。松風の音を波にたとえた詩語。', season: 'summer', length: 2 },
-    { kanji: '清流', reading: 'せいりゅう', meaning: '清らかな流れ。涼しさを感じる。', season: 'summer', length: 2 },
-    { kanji: '涼風', reading: 'りょうふう', meaning: '涼しい風。暑さの中の心地よさ。', season: 'summer', length: 2 },
-    { kanji: '青葉', reading: 'あおば', meaning: '青々とした葉。瑞々しさ。', season: 'summer', length: 2 },
-    { kanji: '清風', reading: 'せいふう', meaning: '清らかな風。心地よい風。', season: 'summer', length: 2 },
-    { kanji: '青山緑水', reading: 'せいざんりょくすい', meaning: '青い山、緑の水。雄大な自然の情景。', season: 'summer', length: 4 },
-    { kanji: '山青水緑', reading: 'さんせいすいりょく', meaning: '青い山とみどりの水。森羅万象がそれぞれ所を得て安住しているさま。', season: 'summer', length: 4 },
-    { kanji: '清流無間断', reading: 'せいりゅうかんだんなし', meaning: '清らかな流れは絶えることなく流れつづけている。涼しさを誘う言葉。', season: 'summer', length: 5 },
-    { kanji: '水声無古今', reading: 'すいせい ここんなし', meaning: '水は絶え間なく流れ、その水音は今も昔も変わりない。', season: 'summer', length: 5 },
-
-    // 秋
-    { kanji: '露', reading: 'ろ', meaning: '「露」とは露出の露、つまり「あらわれる」とか「むき出しになる」という意味。', season: 'autumn', length: 1 },
-    { kanji: '月', reading: 'つき', meaning: '秋の月。月見の季節。', season: 'autumn', length: 1 },
-    { kanji: '菊', reading: 'きく', meaning: '気品ある秋の花。', season: 'autumn', length: 1 },
-    { kanji: '秋風', reading: 'あきかぜ', meaning: '秋の涼しい風。爽やかな風。', season: 'autumn', length: 2 },
-    { kanji: '名月', reading: 'めいげつ', meaning: '十五夜の美しい月。月見の宴。', season: 'autumn', length: 2 },
-    { kanji: '紅葉', reading: 'もみじ', meaning: '秋に色づく葉。美しい秋の景色。', season: 'autumn', length: 2 },
-    { kanji: '霜月', reading: 'そうげつ', meaning: '霜が降りる月。', season: 'autumn', length: 2 },
-    { kanji: '明月', reading: 'めいげつ', meaning: '明るい月。中秋の名月。', season: 'autumn', length: 2 },
-    { kanji: '霜月夜', reading: 'そうげつや', meaning: '霜が降りる月の夜。寒夜、一面に降りた霜が月光でキラキラと輝く風景。', season: 'autumn', length: 3 },
-    { kanji: '明月清風', reading: 'めいげつせいふう', meaning: '明月と清風、清らかに落ち着いた境涯。自然を友にした自在なありかた。', season: 'autumn', length: 4 },
-    { kanji: '清風拂明月', reading: 'せいふうめいげつをはらう', meaning: '秋の夜空には明るく輝く月がかかり、地上には涼しく秋風が吹くという情景の意味。', season: 'autumn', length: 5 },
-    { kanji: '吾心似秋月', reading: 'わがこころしゅうげつににたり', meaning: 'わたしの心は秋の月に似ている。澄み切った悟りの境地を誌の中に託したもの。', season: 'autumn', length: 5 },
-
-    // 冬
-    { kanji: '雪', reading: 'ゆき', meaning: '冬の雪。清浄の象徴。', season: 'winter', length: 1 },
-    { kanji: '氷', reading: 'こおり', meaning: '冬の氷。清らかさの象徴。', season: 'winter', length: 1 },
-    { kanji: '寒月', reading: 'かんげつ', meaning: '冬の冷たい月。凛とした美しさ。', season: 'winter', length: 2 },
-    { kanji: '初雪', reading: 'はつゆき', meaning: 'その年初めて降る雪。冬の訪れ。', season: 'winter', length: 2 },
-    { kanji: '雪月', reading: 'せつげつ', meaning: '雪と月。冬の美しい景色。', season: 'winter', length: 2 },
-    { kanji: '冰雪心', reading: 'ひょうせつしん', meaning: '氷や雪のように真っ白で清らかな心。', season: 'winter', length: 3 },
-    { kanji: '雪月花', reading: 'せつげつか', meaning: '雪と月と花。四季の移り変わりの中の自然の美の総称の意味。', season: 'winter', length: 3 },
-    { kanji: '紅炉一点雪', reading: 'こうろいってんのゆき', meaning: '真っ赤に燃え盛る炉の上に一片の雪が舞い落ち、瞬時に消えるさまをいう意味。', season: 'winter', length: 5 },
-    { kanji: '松樹千年翠', reading: 'しょうじゅせんねんのみどり', meaning: 'つねに緑を保っている松とは、万古不易の真実の象徴であるという意味。', season: 'winter', length: 5 },
-    { kanji: '松無古今色', reading: 'まつにここんのいろなし', meaning: '松は常に緑で変わらない。不変の真実の象徴。', season: 'winter', length: 5 },
-
-    // 通年
-    { kanji: '心', reading: 'こころ', meaning: '求めても得られないけれども、大切な教えを伝える主体となる。', season: 'yearRound', length: 1 },
-    { kanji: '無', reading: 'む', meaning: 'いちばん簡単な一字「無」。「有」・「無」単純な対立的な見方では到底真実はつかめない。', season: 'yearRound', length: 1 },
-    { kanji: '道', reading: 'どう', meaning: '宇宙を含むすべての存在が存在たらしめられている根源的な理のこと。', season: 'yearRound', length: 1 },
-    { kanji: '真', reading: 'しん', meaning: '真理、真実、本当のこと。仏教では悟りによって得られた正しい道理をいう。', season: 'yearRound', length: 1 },
-    { kanji: '静', reading: 'せい', meaning: '不動でいること。落ち着いていること。', season: 'yearRound', length: 1 },
-    { kanji: '円相', reading: 'えんそう', meaning: '◯は「一円相」ともいい、宇宙の究極の姿を意味しています。', season: 'yearRound', length: 2 },
-    { kanji: '喫茶去', reading: 'きっさこ', meaning: '「喫茶」とはお茶を飲む事。まあ一つお茶でも飲みに行こうじゃないかとと言う意味になる。', season: 'yearRound', length: 3 },
-    { kanji: '知足', reading: 'ちそく', meaning: '「足ることを知る」ということ。足ることを知る者は心が満たされ安らかである。', season: 'yearRound', length: 2 },
-    { kanji: '無心', reading: 'むしん', meaning: 'なにものにも心をとどめないこと。心を空っぽにして、自由になること。', season: 'yearRound', length: 2 },
-    { kanji: '無我', reading: 'むが', meaning: '我に対する否定を表し、執着を否定し、それを超越したもの。', season: 'yearRound', length: 2 },
-    { kanji: '守破離', reading: 'しゅはり', meaning: '最初は師の教えを守り、自分の個性を創造したのちに、師から離れて自立すること。', season: 'yearRound', length: 3 },
-    { kanji: '一期一会', reading: 'いちごいちえ', meaning: '一期は一生、一会は唯一の出会い。この出会いは二度とないと思えば、出会いを大切に。', season: 'yearRound', length: 4 },
-    { kanji: '日々是好日', reading: 'にちにちこれこうにち', meaning: '晴の日も雨の日も楽しい日も辛い日も、全てが人生最良の日であるいう意味。', season: 'yearRound', length: 5 },
-    { kanji: '和敬清寂', reading: 'わけいせいじゃく', meaning: '茶道の祖である村田珠光の創唱とされ、利休の茶の精神をあらわす四つの規範。', season: 'yearRound', length: 4 },
-    { kanji: '茶禅一味', reading: 'ちゃぜんいちみ', meaning: '茶道の心と禅の極意とは一つであること。茶道にいう「和敬清寂」の心。', season: 'yearRound', length: 4 },
-    { kanji: '以心伝心', reading: 'いしんでんしん', meaning: '言葉や文字で表現することが難しい仏法の真髄を師から弟子の心に伝えること。', season: 'yearRound', length: 4 },
-    { kanji: '行雲流水', reading: 'こううんりゅうすい', meaning: '行く雲、流れる水の如く、悠々と自在に場所を変え、一処不住、無執着、自由に生きる姿をあらわす。', season: 'yearRound', length: 4 },
-    { kanji: '明鏡止水', reading: 'めいきょうしすい', meaning: '明らかな鏡としずかな水。心にわだかまりがなく、静かに落ちついていることのたとえ。', season: 'yearRound', length: 4 },
-    { kanji: '平常心', reading: 'へいじょうしん', meaning: '普段と変わらない心。揺れ動くことのない心理状態。', season: 'yearRound', length: 3 },
-    { kanji: '不動心', reading: 'ふどうしん', meaning: '何ものにも動かされることのない強い心。妄想煩悩に惑わされず動揺しない心。', season: 'yearRound', length: 3 },
-    { kanji: '放下着', reading: 'ほうげじゃく', meaning: 'なんだって捨ててしまいなさい。捨ててこそ本来の立場がくっきり浮かぶ。', season: 'yearRound', length: 3 },
-    { kanji: '本来無一物', reading: 'ほんらいむいちもつ', meaning: '人間は本来一物も有しない。執着心を捨ててしまうと、本来無一物が無一物中無尽蔵であることに気づくこと。', season: 'yearRound', length: 5 },
-    { kanji: '無事是貴人', reading: 'ぶじこれきにん', meaning: '仏の道を歩み、悟りを得るというのは、何もしないということ。', season: 'yearRound', length: 5 },
-    { kanji: '啐啄同時', reading: 'そったくどうじ', meaning: '「啐」はひな鳥が内側から殻をつつくこと。「啄」は親鳥が外から殻をつつくこと。', season: 'yearRound', length: 4 },
-    { kanji: '主客一体', reading: 'しゅかくいったい', meaning: '亭主と客が一つになること。', season: 'yearRound', length: 4 },
-    { kanji: '一座建立', reading: 'いちざこんりゅう', meaning: '一つの茶席を全員で作り上げること。', season: 'yearRound', length: 4 },
-    { kanji: '直心是道場', reading: 'じきしんこれどうじょう', meaning: '直心とは自分のありのままの心を指し、これこそが道場であり、いたるところが修行の場所となる意味。', season: 'yearRound', length: 5 }
-  ];
+  const zenPhrases = ZEN_PHRASES;
 
   const t = content[language];
   const languages = [
