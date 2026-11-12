@@ -8,22 +8,11 @@ const content = {
     back: 'ホームに戻る',
     title: '運営者情報',
     subtitle: '茶乃間について',
-    rows: [
-      { label: 'サイト名', value: '茶乃間（Cha no Ma）' },
-      { label: '運営', value: '茶乃間' },
-      { label: '運営者', value: '宮崎 一乃' },
-      { label: 'URL', value: 'https://chanoma.pages.dev' },
-    ],
     aboutTitle: '運営者より',
     about: [
       '京都生まれ。幼い頃から祖母のもとで裏千家の茶道を学んできました。',
       '現在は京都大学大学院で生命科学の研究をしながら、京都・中京区で海外からのお客様向けの茶道体験「茶乃間」を開いています。',
       '茶道を習い始めたばかりの方にも、長くお稽古を続けている方にも、知りたいことにすぐ手が届く場所をつくりたいと思い、このサイトを始めました。お気づきの点があれば、お問い合わせからお知らせいただけるとうれしいです。',
-    ],
-    careerTitle: '茶道の経歴',
-    career: [
-      '立命館大学 茶道部 79期 副部長',
-      '裏千家淡交会 京都西青年部 役員',
     ],
     contact: 'お問い合わせ',
   },
@@ -31,22 +20,11 @@ const content = {
     back: 'Back to Home',
     title: 'About',
     subtitle: 'About Cha no Ma',
-    rows: [
-      { label: 'Site', value: 'Cha no Ma (茶乃間)' },
-      { label: 'Operated by', value: 'Cha no Ma' },
-      { label: 'Operator', value: 'Ichino Miyazaki' },
-      { label: 'URL', value: 'https://chanoma.pages.dev' },
-    ],
     aboutTitle: 'From the operator',
     about: [
       'Born in Kyoto, I have studied Urasenke tea ceremony with my grandmother since childhood.',
       'I am a graduate student in life sciences at Kyoto University, and I also host tea ceremony experiences for visitors from abroad in Nakagyo, Kyoto, under the name Cha no Ma.',
       'I started this site to give both beginners and long-time practitioners a place where what they want to know is always close at hand. If you notice anything, I would be glad to hear from you through the contact page.',
-    ],
-    careerTitle: 'Tea ceremony background',
-    career: [
-      'Vice President (79th class), Tea Ceremony Club, Ritsumeikan University',
-      'Officer, Kyoto Nishi Youth Division, Urasenke Tankokai',
     ],
     contact: 'Contact',
   },
@@ -101,17 +79,6 @@ const About = () => {
       </header>
 
       <main className="max-w-3xl mx-auto px-6 pb-24 space-y-8">
-        <section className="ab-card px-6 md:px-10 py-2">
-          <dl>
-            {t.rows.map((row) => (
-              <div key={row.label} className="ab-row grid grid-cols-[6.5rem_1fr] md:grid-cols-[9rem_1fr] gap-4 py-5">
-                <dt className="ab-accent font-semibold">{row.label}</dt>
-                <dd className="break-words">{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
         <section className="ab-card p-6 md:p-10">
           <h2 className="ab-display ab-accent text-2xl font-bold mb-5">{t.aboutTitle}</h2>
           <div className="space-y-4 leading-loose ab-soft">
@@ -119,16 +86,6 @@ const About = () => {
               <p key={p}>{p}</p>
             ))}
           </div>
-
-          <h3 className="ab-accent font-semibold mt-8 mb-3">{t.careerTitle}</h3>
-          <ul className="space-y-2">
-            {t.career.map((item) => (
-              <li key={item} className="flex gap-3 items-start">
-                <span className="mt-2.5 w-2 h-2 rounded-full flex-shrink-0" style={{ background: '#7fa67f' }}></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <div className="text-center">
