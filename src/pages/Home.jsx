@@ -540,6 +540,7 @@ const Home = () => {
               <h4 className="font-display text-xl font-semibold mb-4">{language === 'ja' ? 'コミュニティ' : 'Community'}</h4>
               <ul className="space-y-2 text-paper/70">
                 <li><Link to="/keiko-note" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お稽古ノート' : 'Practice Notes'}</Link></li>
+                <li><Link to="/timeline" className="hover:text-matcha transition-colors">{language === 'ja' ? 'みんなのお稽古' : 'Practice Log'}</Link></li>
                 <li><Link to="/contribute" className="hover:text-matcha transition-colors">{language === 'ja' ? '情報を投稿' : 'Contribute'}</Link></li>
                 <li><Link to="/about" className="hover:text-matcha transition-colors">{language === 'ja' ? '運営者情報' : 'About'}</Link></li>
                 <li><Link to="/contact" className="hover:text-matcha transition-colors">{language === 'ja' ? 'お問い合わせ' : 'Contact'}</Link></li>

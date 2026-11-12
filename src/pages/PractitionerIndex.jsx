@@ -35,6 +35,11 @@ const PractitionerIndex = () => {
           link: '/keiko-note'
         },
         {
+          title: 'みんなのお稽古',
+          description: '今日のお稽古をひとことで。ほかの人のお稽古の様子も、タイムラインでのぞけます。',
+          link: '/timeline'
+        },
+        {
           title: '裏千家 歴代家元',
           description: '利休から当代 坐忘斎まで十六代の系譜。親子・養子のつながりと、一人ひとりの人物像をたどれます。',
           link: '/urasenke-lineage'
@@ -75,6 +80,11 @@ const PractitionerIndex = () => {
           title: 'Practice Notes',
           description: 'Record what you learn in each lesson and your teacher\'s guidance. Your private notebook, on phone or computer.',
           link: '/keiko-note'
+        },
+        {
+          title: 'Practice Log',
+          description: 'Share a word about today’s lesson and see what others are practicing.',
+          link: '/timeline'
         },
         {
           title: 'Urasenke Lineage',

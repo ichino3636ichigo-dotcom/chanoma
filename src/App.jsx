@@ -20,6 +20,7 @@ import UrasenkeLineage from './pages/UrasenkeLineage';
 
 // お稽古ノートはFirebaseを使うので、開いたときだけ読み込む（他のページを重くしない）
 const KeikoNote = lazy(() => import('./pages/KeikoNote'));
+const Timeline = lazy(() => import('./pages/Timeline'));
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/urasenke-lineage" element={<UrasenkeLineage />} />
         <Route path="/keiko-note" element={<KeikoNote />} />
+        <Route path="/timeline" element={<Timeline />} />
         <Route path="/tearoom-map" element={<TeaRoomMap />} />
       </Routes>
       </Suspense>
